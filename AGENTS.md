@@ -33,7 +33,7 @@ ck-apstra-tool/
 - Commit after every completed task in `specs/tasks.md`
 - Mark tasks `[x]` in `specs/tasks.md` before committing
 
-## SDD Gates — check before every coding session
+## SDD Gates — enforce before every code change
 Read `specs/requirements.md`, `specs/design.md`, and `specs/tasks.md` at the start
 of every session. Then enforce these gates in order:
 
