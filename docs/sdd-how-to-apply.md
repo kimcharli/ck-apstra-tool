@@ -23,7 +23,9 @@ and code that's hard to explain later. A spec written before coding:
 All active specs live in `specs/`. Each has a `Status` field that drives the gates.
 
 ### `specs/requirements.md` — What & Why
+
 Written before anything else. Answers:
+
 - What problem are we solving?
 - Who is affected?
 - What does success look like? (acceptance criteria)
@@ -32,7 +34,9 @@ Written before anything else. Answers:
 **Status flow:** DRAFT → APPROVED → IN-PROGRESS → DONE
 
 ### `specs/design.md` — How
+
 Written after requirements are APPROVED. Answers:
+
 - What is the architecture?
 - What are the key data models and interfaces?
 - What tradeoffs were considered and why?
@@ -40,7 +44,9 @@ Written after requirements are APPROVED. Answers:
 **Status flow:** DRAFT → APPROVED → IN-PROGRESS → DONE
 
 ### `specs/tasks.md` — Ordered steps
+
 Written after design is APPROVED. Contains:
+
 - Atomic, independently committable tasks
 - Explicit dependencies between tasks
 - A completed section tasks move into when done
@@ -53,7 +59,7 @@ Written after design is APPROVED. Contains:
 
 The AI enforces three gates before writing any code:
 
-```
+```text
 requirements APPROVED → design APPROVED → task exists in tasks.md
 ```
 
@@ -65,6 +71,7 @@ next. This is intentional friction — it keeps the specs honest.
 ## The Daily Loop
 
 ### Starting a new feature
+
 1. Open `specs/requirements.md`, describe the feature under a new User Story
 2. Ask Claude: *"Read AGENTS.md and specs/requirements.md. Help me complete
    requirements for [feature]."*
@@ -77,12 +84,15 @@ next. This is intentional friction — it keeps the specs honest.
 9. Repeat for each task
 
 ### Mid-feature discovery
+
 If something new surfaces during implementation:
+
 1. Stop Claude: *"Hold on, this changes the requirements."*
 2. Update `specs/requirements.md` (back to DRAFT if needed)
 3. Cascade the change through design and tasks before resuming
 
 ### Per-feature specs
+
 For larger or parallel features, create a dedicated file in `specs/features/`
 using `specs/features/_template.md`. This keeps the top-level docs clean while
 preserving full traceability per feature.
@@ -92,7 +102,7 @@ preserving full traceability per feature.
 ## Model Selection
 
 | Phase | Model |
-|---|---|
+| --- | --- |
 | Requirements, Design | Claude Opus (deeper reasoning) |
 | Tasks, Implementation | Claude Sonnet (faster, cost-effective) |
 
@@ -101,7 +111,7 @@ preserving full traceability per feature.
 ## What Belongs Where
 
 | Content | Location |
-|---|---|
+| --- | --- |
 | AI behavioral rules, gates | `AGENTS.md` |
 | Active requirements / design / tasks | `specs/*.md` |
 | Per-feature breakdown | `specs/features/*.md` |

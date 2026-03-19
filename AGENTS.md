@@ -1,16 +1,19 @@
 # ck-apstra-tool — Project Constitution
 
 ## Purpose
+>
 > (Fill in: one paragraph on what this tool does and why it exists)
 
 ## Stack & Environment
+
 - **Language**: Python (managed via `uv`)
 - **Target**: Apstra controllers / blueprints
 - **Auth**: Apstra REST API (token-based)
 - **Runtime**: macOS / Linux CLI
 
 ## Project Structure
-```
+
+```text
 ck-apstra-tool/
 ├── AGENTS.md                    # This file — read first, always
 ├── README.md
@@ -27,6 +30,7 @@ ck-apstra-tool/
 ```
 
 ## Conventions
+
 - All code lives under `src/ck_apstra_tool/`
 - Tests mirror the source tree under `tests/`
 - Use `uv` for dependency management — never `pip install` directly
@@ -34,6 +38,7 @@ ck-apstra-tool/
 - Mark tasks `[x]` in `specs/tasks.md` before committing
 
 ## SDD Gates — enforce before every code change
+
 Read `specs/requirements.md`, `specs/design.md`, and `specs/tasks.md` at the start
 of every session. Then enforce these gates in order:
 
@@ -48,11 +53,13 @@ If a gate fails, refuse to write code and name the gate that failed.
 If a requirement changes mid-implementation, stop and update specs first.
 
 ## Apstra Context
+
 - Controllers managed: (fill in IPs / environments)
 - Blueprint naming convention: (fill in)
 - Key SDK / MCP: `ck-apstra-mcp-exec` at `~/Projects/ck-apstra-mcp-exec`
 
 ## Claude Code Workflow
+
 - Use Opus for spec phases (requirements, design)
 - Use Sonnet for implementation phases (tasks, code)
 - Spawn subagents per task in `specs/tasks.md` for parallel execution
