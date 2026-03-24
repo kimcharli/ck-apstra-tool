@@ -63,3 +63,20 @@ If a requirement changes mid-implementation, stop and update specs first.
 - Use Opus for spec phases (requirements, design)
 - Use Sonnet for implementation phases (tasks, code)
 - Spawn subagents per task in `specs/tasks.md` for parallel execution
+
+
+## Pre-commit (run before every commit)
+```bash
+uv run ruff check --fix && uv run ruff format
+uv run pytest
+```
+
+## Shell: Multi-line Content
+NEVER pass multi-line strings inline to the shell. Write to `work/tmp/<name>.txt` first.
+
+```bash
+# ✅ git commit -F work/tmp/commit_msg.txt
+# ✅ bash work/tmp/run_script.sh
+# ✅ python work/tmp/patch.py
+```
+
